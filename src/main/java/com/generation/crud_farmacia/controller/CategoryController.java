@@ -55,9 +55,9 @@ public class CategoryController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        Optional<Category> theme = categoryRepository.findById(id);
+        Optional<Category> category = categoryRepository.findById(id);
 
-        if (theme.isEmpty())
+        if (category.isEmpty())
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 
         categoryRepository.deleteById(id);
